@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-sm-12">
+      <img src="{{recipe.imagePath}}" alt="{{recipe.name}}" class="img-fluid" >
+    </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+    <div class="col-md-10">
+        <legend>{{recipe.name}}</legend>
+    </div>
+    <div class="col-md-2">
+        <div class="btn-group active">
+          <button type="button" class="btn btn-secondary float-right dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" style="cursor:pointer" (click)="addToShopping()">To Shopping List</a>
+            <a class="dropdown-item" routerLink="edit">Edit Recipe</a>
+            <a class="dropdown-item" style="cursor:pointer" (click) = "onDelete()">Delete Recipe</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <p>{{recipe.description}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor = "let ingredient of recipe.ingredients">
+      {{ingredient.name}} - {{ingredient.amount}}</li>
+    </ul>
+  </div>
+</div>
