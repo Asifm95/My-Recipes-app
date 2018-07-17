@@ -43,7 +43,7 @@ getRecipe(){
 }
 
   addToShopping(){
-    //   this.recipeService.toShoppingList(this.recipe.ingredients);
+      this.recipeService.toShoppingList(this.recipe.ingredients);
   }
 
   onDelete(){

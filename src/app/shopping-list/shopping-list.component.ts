@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Ingreduent } from "../shared/ingredients.model";
 import { ShoppingListService } from './shopping-list.service';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,7 +13,7 @@ export class ShoppingListComponent implements OnInit {
 
   ingredients: Observable<Ingreduent[]>
 
-  constructor(private shoppingListService:ShoppingListService) { }
+  constructor(private shoppingListService:ShoppingListService, private auth:AuthService) { }
 
   ngOnInit() {
     //   this.ingredients = this.shoppingListService.getIngredients();

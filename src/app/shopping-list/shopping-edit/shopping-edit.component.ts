@@ -3,7 +3,6 @@ import { Ingreduent } from '../../shared/ingredients.model';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgForm } from '@angular/forms';
 import { Subscription, Observable } from 'rxjs';
-import { OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -36,26 +35,29 @@ export class ShoppingEditComponent implements OnInit{
       this.shoppingListService.startedEditing
       .subscribe((id: string) => {
           this.ingredientEditId = id;
-          this.editMode = true;
+          this.editMode = this.ingredientEditId!= null;
           
-          this.shoppingListService.getIngredient(this.ingredientEditId)
-          .subscribe((data) => {
-              this.ingredient = data
-              console.log(this.ingredient);
-                this.ingredientForm.setValue({
-                        name: this.ingredient.name,
-                        amount: this.ingredient.amount
+              
+              this.shoppingListService.getIngredient(this.ingredientEditId)
+              .subscribe((data) => {
+                  this.ingredient = data
+                  console.log(this.ingredient);
+                  this.ingredientForm.setValue({
+                      name: this.ingredient.name,
+                      amount: this.ingredient.amount
                     })
-              
-              
+                    
+                    
                 })
-        });
+            
+            });
   }
 
   saveData(data:NgForm){
          const ingredientData = {
              name: data.value.name,
-             amount: data.value.amount
+             amount: data.value.amount,
+             authorId: this.auth.currentUserId
          }
          console.log(ingredientData)
 
@@ -65,12 +67,14 @@ export class ShoppingEditComponent implements OnInit{
       //Update function
       if (this.editMode) {
           this.shoppingListService.updateIngredient(this.ingredientEditId, ingredientData);
+          this.onClear()
+          
        //add function
       }else{
           this.shoppingListService.addIngredients(ingredientData);
+          this.onClear()
       }
-      this.editMode = false;
-      this.onClear()
+    //   this.editMode = false;
 
   }
 
@@ -86,7 +90,4 @@ export class ShoppingEditComponent implements OnInit{
       this.onClear();
   }
 
-//   ngOnDestroy(): void {
-//       this.subscription.unsubscribe();
-//   }
 }

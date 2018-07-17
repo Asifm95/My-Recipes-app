@@ -3,6 +3,9 @@ import { Ingreduent } from '../shared/ingredients.model';
 import { Subject } from 'rxjs';
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +18,9 @@ export class ShoppingListService {
     ingredientsCollection: AngularFirestoreCollection<Ingreduent>
     ingredientsDoc: AngularFirestoreDocument<Ingreduent>
 
-    constructor(private afs:AngularFirestore) {
+    constructor(private afs:AngularFirestore, 
+                private auth:AuthService,
+                private toast: ToastrService) {
         this.ingredientsCollection = this.afs.collection('ingredients')
      }
 
@@ -58,9 +63,21 @@ export class ShoppingListService {
         this.getIngredientData(id).delete()
     }
 
-    addToList(ingredients){
-        // this.ingredients.push(...ingredients);
-        // this.ingtredientsUpdated.emit(this.ingredients.slice());
+    addToList(toIngredients){
+        toIngredients.forEach(element => {
+            const ingredient = {
+                name: element.name,
+                amount: element.amount,
+                authorId: this.auth.currentUserId
+            }
+
+            console.log(ingredient);
+            this.ingredientsCollection.add(ingredient)
+            this.toast.info(`${ingredient.name} added to shopping list`, 'Added Successfully')
+            
+            
+        });
+
 
     }
 

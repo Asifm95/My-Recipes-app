@@ -2,10 +2,10 @@
   <div class="col-sm-10">
     <app-shopping-edit></app-shopping-edit>
     <hr>
-    <ul class="list-group">
-      <li class="list-group-item" (click) = "onEditItem(ingredient.id)"
-      *ngFor = "let ingredient of ingredients | async"
-      style="cursor: pointer">{{ingredient.name}} ({{ingredient.amount}})</li>
+    <ul class="list-group" *ngFor = "let ingredient of ingredients | async">
+        <li class="list-group-item" (click) = "onEditItem(ingredient.id)"
+        *ngIf = "auth.currentUserId == ingredient.authorId"
+        style="cursor: pointer">{{ingredient.name}} ({{ingredient.amount}})</li>
     </ul>
   </div>
 </div>
