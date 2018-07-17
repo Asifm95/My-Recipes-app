@@ -9,20 +9,21 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink ="/recipes">Recipes</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf = "auth.authenticated">
         <a class="nav-link" routerLink ="/shopping">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Manage
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
-        </div>
+
+      
+      <li *ngIf = "auth.afAuth.authState | async as user; else showlogin">
+        <!-- <span class="navbar-text">{{user.displayName}}</span> -->
+        <button class="btn btn-light ml-3" routerLink="new">Create Recipes</button>
+        <button class="btn btn-danger ml-3" (click)="auth.logout()">Logout</button>
       </li>
+      <ng-template #showlogin>
+        <button class="btn btn-primary" (click) = "onLogin()" >Login with Google</button>
+      </ng-template>
     </ul>
   </div>
 </nav>

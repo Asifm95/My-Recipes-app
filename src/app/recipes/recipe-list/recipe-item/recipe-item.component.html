@@ -12,12 +12,12 @@
 <ul class="xop-grid">
     <li routerLinkActive = "active">
       <div class="xop-box xop-img-1"
-      [ngStyle] = "{'background-image':'url('+ recipe.imagePath +')'}">
+      [ngStyle] = "{'background-image':'url('+ recipe.imagepath +')'}">
         <a
-        routerLink="{{index}}"
+        routerLink="{{recipe.id}}"
         >
         <div class="xop-info">
-          <h5>{{recipe.name}}</h5>
+          <h5>{{recipe.title}}</h5>
           <!-- <p>{{recipe.description}}</p> -->
         </div></a>
       </div>
