@@ -60,15 +60,12 @@ export class ShoppingEditComponent implements OnInit {
 
     //   const value = data.value;
     //   const newIngredient = new Ingreduent(value.name , value.amount);
-    //Update function
     if (this.editMode) {
       this.shoppingListService.updateIngredient(
         this.ingredientEditId,
         ingredientData
       );
       this.onClear();
-
-      //add function
     } else {
       this.shoppingListService.addIngredients(ingredientData);
       this.onClear();
