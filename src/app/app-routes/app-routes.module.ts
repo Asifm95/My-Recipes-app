@@ -10,25 +10,26 @@ import { RecipeEditComponent } from '../recipes/recipe-edit/recipe-edit.componen
 import { SignupComponent } from '../auth/signup/signup.component';
 import { SigninComponent } from '../auth/signin/signin.component';
 
-const appRoutes:Routes = [
-    {path:'' , redirectTo:'/recipes' , pathMatch: 'full'},
-    { path: 'new', component: RecipeEditComponent },
-    {path:'recipes', component:RecipesComponent, children:[
-        {path:'', component: RecipeStartComponent},
-        {path: ':id', component: RecipeDetailComponent},
-        {path: ':id/edit', component: RecipeEditComponent},
-    ]},
-    {path: 'shopping' , component: ShoppingListComponent}
-    // {path:'signup' , component: SignupComponent}
-    // {path:'signin' , component: SigninComponent}
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: 'new', component: RecipeEditComponent },
+  {
+    path: 'recipes',
+    component: RecipesComponent,
+    children: [
+      { path: '', component: RecipeStartComponent },
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent }
+    ]
+  },
+  { path: 'shopping', component: ShoppingListComponent }
+  // {path:'signup' , component: SignupComponent}
+  // {path:'signin' , component: SigninComponent}
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(appRoutes)
-  ],
+  imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
   declarations: []
 })
-export class AppRoutesModule { }
+export class AppRoutesModule {}
