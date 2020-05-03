@@ -20,6 +20,10 @@ export class RecipeEditComponent implements OnInit {
 
   editMode = false;
   recipeForm: FormGroup;
+
+  get recipeIngredientsArray() {
+    return this.recipeForm.get('ingredients') as FormArray;
+  }
   constructor(
     private route: ActivatedRoute,
     private recipeService: RecipeService,
