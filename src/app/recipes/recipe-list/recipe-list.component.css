@@ -1,0 +1,8 @@
+.recipe-item-container:not(:first-child) {
+  margin-top: 1.8em;
+}
+
+.recipe-list {
+  scroll-snap-align: start;
+  /* background: beige; */
+}

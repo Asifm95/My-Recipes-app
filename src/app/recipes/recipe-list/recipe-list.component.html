@@ -4,13 +4,13 @@
     routerLink="new">Create recipe</button>
   </div>
 </div> -->
-<div class="row">
-    <div class="col-sm-12" *ngFor = "let recipe of recipes | async">
-      <!-- {{recipe.title}}
+<div class="recipe-list">
+  <div *ngFor="let recipe of recipes | async" class="recipe-item-container">
+    <!-- {{recipe.title}}
       {{recipe.description}}
       <div *ngFor = "let ingredient of recipe.ingredients">
         {{ingredient.name}}
       </div> -->
-        <app-recipe-item [recipe] = "recipe"></app-recipe-item>
-    </div>
+    <app-recipe-item [recipe]="recipe"></app-recipe-item>
+  </div>
 </div>
