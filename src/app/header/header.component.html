@@ -1,28 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="">MyRecipes App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="">Angular Recipebook</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink ="/recipes">Recipes</a>
+        <a class="nav-link" routerLink="/recipes">Recipes</a>
       </li>
-      <li class="nav-item" routerLinkActive="active" *ngIf = "auth.authenticated">
-        <a class="nav-link" routerLink ="/shopping">Shopping List</a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="/shopping">Shopping List</a>
       </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-
-      
-      <li *ngIf = "auth.afAuth.authState | async as user; else showlogin">
+      <li *ngIf="auth.afAuth.authState | async as user; else showlogin">
         <!-- <span class="navbar-text">{{user.displayName}}</span> -->
-        <button class="btn btn-light ml-3" routerLink="new">Create Recipes</button>
-        <button class="btn btn-danger ml-3" (click)="auth.logout()">Logout</button>
+        <button class="btn btn-light ml-3" routerLink="new">
+          Create Recipes
+        </button>
+        <button class="btn btn-danger ml-3" (click)="auth.logout()">
+          Logout
+        </button>
       </li>
       <ng-template #showlogin>
-        <button class="btn btn-primary" (click) = "onLogin()" >Login with Google</button>
+        <button class="btn btn-primary" (click)="onLogin()">
+          Login with Google
+        </button>
       </ng-template>
     </ul>
   </div>
