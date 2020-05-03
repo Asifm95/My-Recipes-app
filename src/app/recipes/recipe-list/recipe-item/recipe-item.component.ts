@@ -17,4 +17,6 @@ export class RecipeItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  urlGen = (url: string) => `url(${url})`;
 }
