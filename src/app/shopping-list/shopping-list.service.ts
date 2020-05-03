@@ -7,11 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
-  AngularFirestore
+  AngularFirestore,
 } from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ShoppingListService {
   // ingtredientsUpdated = new EventEmitter<Ingreduent[]>();
@@ -30,8 +30,8 @@ export class ShoppingListService {
 
   getIngredients() {
     return this.ingredientsCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
+      map((actions) => {
+        return actions.map((a) => {
           const data = a.payload.doc.data() as Ingreduent;
           const id = a.payload.doc.id;
           return { id, ...data };
@@ -69,11 +69,11 @@ export class ShoppingListService {
   }
 
   addToList(toIngredients) {
-    toIngredients.forEach(element => {
+    toIngredients.forEach((element) => {
       const ingredient = {
         name: element.name,
         amount: element.amount,
-        authorId: this.auth.currentUserId
+        authorId: this.auth.currentUserId,
       };
 
       console.log(ingredient);

@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   authState: any = null;
@@ -15,7 +15,7 @@ export class AuthService {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.afAuth.authState.subscribe(data => {
+    this.afAuth.authState.subscribe((data) => {
       this.authState = data;
     });
   }

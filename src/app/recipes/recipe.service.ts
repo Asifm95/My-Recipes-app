@@ -6,12 +6,12 @@ import { Subject, observable } from 'rxjs';
 import {
   AngularFirestoreCollection,
   AngularFirestore,
-  AngularFirestoreDocument
+  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipeService {
   recipeCollection: AngularFirestoreCollection<Recipe>;
@@ -29,8 +29,8 @@ export class RecipeService {
   getData() {
     // return this.recipes.slice();
     return this.recipeCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
+      map((actions) => {
+        return actions.map((a) => {
           const data = a.payload.doc.data() as Recipe;
           const id = a.payload.doc.id;
           return { id, ...data };

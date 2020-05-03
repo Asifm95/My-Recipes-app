@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.css']
+  styleUrls: ['./shopping-edit.component.css'],
 })
 export class ShoppingEditComponent implements OnInit {
   @ViewChild('form', { static: true }) ingredientForm: NgForm;
@@ -39,12 +39,12 @@ export class ShoppingEditComponent implements OnInit {
 
       this.shoppingListService
         .getIngredient(this.ingredientEditId)
-        .subscribe(data => {
+        .subscribe((data) => {
           this.ingredient = data;
           console.log(this.ingredient);
           this.ingredientForm.setValue({
             name: this.ingredient.name,
-            amount: this.ingredient.amount
+            amount: this.ingredient.amount,
           });
         });
     });
@@ -54,7 +54,7 @@ export class ShoppingEditComponent implements OnInit {
     const ingredientData = {
       name: data.value.name,
       amount: data.value.amount,
-      authorId: this.auth.currentUserId
+      authorId: this.auth.currentUserId,
     };
     console.log(ingredientData);
 

@@ -19,10 +19,10 @@ const appRoutes: Routes = [
     children: [
       { path: '', component: RecipeStartComponent },
       { path: ':id', component: RecipeDetailComponent },
-      { path: ':id/edit', component: RecipeEditComponent }
-    ]
+      { path: ':id/edit', component: RecipeEditComponent },
+    ],
   },
-  { path: 'shopping', component: ShoppingListComponent }
+  { path: 'shopping', component: ShoppingListComponent },
   // {path:'signup' , component: SignupComponent}
   // {path:'signin' , component: SigninComponent}
 ];
@@ -30,6 +30,6 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
-  declarations: []
+  declarations: [],
 })
 export class AppRoutesModule {}
