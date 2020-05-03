@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  selectedFeature: number = 1;
+  selectedFeature = 1;
 
   constructor() {}
 
