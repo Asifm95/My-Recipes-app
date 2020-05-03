@@ -1,25 +1,13 @@
-<!-- <div class="card mb-3" style="width: 18rem;" >
-    <img class="card-img-top img-fluid"
-    src="{{recipe.imagePath}}"
-    alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{recipe.name}}</h5> -->
-        <!-- <p class="card-text">{{recipe.description}}</p> -->
-        <!-- <a class="btn btn-success" (click)="onSelect()" style="color:white">View recipe</a>
-    </div>
-</div> -->
-
-<ul class="xop-grid">
-    <li routerLinkActive = "active">
-      <div class="xop-box xop-img-1"
-      [ngStyle] = "{'background-image':'url('+ recipe.imagepath +')'}">
-        <a
-        routerLink="{{recipe.id}}"
-        >
-        <div class="xop-info">
-          <h5>{{recipe.title}}</h5>
-          <!-- <p>{{recipe.description}}</p> -->
-        </div></a>
+<div class="xop-grid">
+  <a routerLink="{{ recipe.id }}">
+    <div
+      class="xop-box xop-img-1"
+      routerLinkActive="active"
+      [ngStyle]="{ 'background-image': urlGen(recipe.imagepath) }"
+    >
+      <div class="xop-info">
+        <h5>{{ recipe.title }}</h5>
       </div>
-    </li>
-</ul>
+    </div>
+  </a>
+</div>
