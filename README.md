@@ -2,7 +2,7 @@
 
 A recipebook project build using Angular + firebase
 
-![alt text](./anuglar-recipes.gif 'Logo Title Text 1')
+![alt text](./anuglar-recipe.gif 'angular-recipe-app')
 
 ## Features
 
@@ -10,11 +10,3 @@ A recipebook project build using Angular + firebase
 - View recipes added by others
 - add ingredients from a recipe to a buy list
 - user authentication using Google OAuth
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
