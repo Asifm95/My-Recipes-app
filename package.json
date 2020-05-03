@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:gh": "ng build --prod –base-href='https://asifm95.github.io/angular-recipes-blog/'",
+    "build:gh": "ng build --prod --base-href='https://asifm95.github.io/angular-recipes-blog/'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
