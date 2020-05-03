@@ -257,10 +257,19 @@ Apache-2.0
    limitations under the License.
 
 
+@firebase/firestore
+Apache-2.0
+
+@firebase/logger
+Apache-2.0
+
 @firebase/polyfill
 Apache-2.0
 
 @firebase/util
+Apache-2.0
+
+@firebase/webchannel-wrapper
 Apache-2.0
 
 core-js
@@ -289,6 +298,8 @@ THE SOFTWARE.
 firebase/app
 
 firebase/auth
+
+firebase/firestore
 
 ngx-toastr
 MIT
